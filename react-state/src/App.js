@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+
+    const [valor, setValor] = useState(() => {
+        return 5000
+    })
+
+    function aumentar() {
+        setValor(valor_antigo => valor_antigo + 1)
+    }
+
+    function diminuir() {
+        setValor(valor_antigo => valor_antigo - 1)
+    }
+
+    return (
+        <>
+            <h1>React Hooks - useState</h1>
+            <button onClick={aumentar}>Aumentar</button>
+            <span> {valor} </span>
+            <button onClick={diminuir}>Diminuir</button>
+        </>
+    )
 }
-
-export default App;
